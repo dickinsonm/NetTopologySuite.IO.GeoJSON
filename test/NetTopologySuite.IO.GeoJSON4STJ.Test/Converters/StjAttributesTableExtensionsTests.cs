@@ -11,7 +11,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
 {
     // These methods were moved to instance methods on JsonElementAttributesTable, but the extension
     // methods need to remain for compat reasons, so:
-    #pragma warning disable CS0618
+#pragma warning disable CS0618
 
     public sealed class StjAttributesTableExtensionsTests
     {

@@ -123,7 +123,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
             var options = DefaultOptions;
             var converter = (JsonConverter<IAttributesTable>)GeoJsonConverterFactory.CreateConverter(typeof(IAttributesTable), options);
             var reader = new Utf8JsonReader(Encoding.UTF8.GetBytes(json));
-            
+
             // read start object token and prepare the next token
             reader.Read();
             var result = converter.Read(ref reader, typeof(IAttributesTable), options);
@@ -136,7 +136,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
             Assert.IsNotEmpty(list);
             Assert.AreEqual(1, list.Count);
             Assert.IsInstanceOf<IAttributesTable>(list[0]);
-            var inner = (IAttributesTable) list[0];
+            var inner = (IAttributesTable)list[0];
             Assert.AreEqual(1, inner.Count);
             Assert.AreEqual("innervalue1", inner["innertest1"]);
         }
@@ -163,10 +163,10 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
             Assert.AreEqual(2, list.Count);
             Assert.IsInstanceOf<IAttributesTable>(list[0]);
             Assert.IsInstanceOf<IAttributesTable>(list[1]);
-            var first = (IAttributesTable) list[0];
+            var first = (IAttributesTable)list[0];
             Assert.AreEqual(1, first.Count);
             Assert.AreEqual("innervalue1", first["innertest1"]);
-            var second = (IAttributesTable) list[1];
+            var second = (IAttributesTable)list[1];
             Assert.AreEqual(2, second.Count);
             Assert.AreEqual("innervalue2", second["innertest2"]);
             Assert.AreEqual("innervalue3", second["innertest3"]);
@@ -177,7 +177,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
         {
             const string json = "{\"test1\":\"value1\",\"test2\": [{ \"innertest1\":\"innervalue1\" }, [{ \"innertest2\":\"innervalue2\", \"innertest3\":\"innervalue3\"}]]}}";
             var options = DefaultOptions;
-            var converter = (JsonConverter<IAttributesTable>) GeoJsonConverterFactory.CreateConverter(typeof(IAttributesTable), options);
+            var converter = (JsonConverter<IAttributesTable>)GeoJsonConverterFactory.CreateConverter(typeof(IAttributesTable), options);
             var reader = new Utf8JsonReader(Encoding.UTF8.GetBytes(json));
 
             // read start object token and prepare the next token
@@ -194,16 +194,16 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
             Assert.AreEqual(2, list.Count);
             Assert.IsInstanceOf<IList<object>>(list[1]);
             Assert.IsInstanceOf<IAttributesTable>(list[0]);
-            var first = (IAttributesTable) list[0];
+            var first = (IAttributesTable)list[0];
             Assert.AreEqual(1, first.Count);
             Assert.IsTrue(first.Exists("innertest1"));
             Assert.AreEqual("innervalue1", first["innertest1"]);
-            var innerList = (IList<object>) list[1];
+            var innerList = (IList<object>)list[1];
             Assert.IsNotNull(innerList);
             Assert.IsNotEmpty(innerList);
             Assert.AreEqual(1, innerList.Count);
             Assert.IsInstanceOf<IAttributesTable>(innerList[0]);
-            var inner = (IAttributesTable) innerList[0];
+            var inner = (IAttributesTable)innerList[0];
             Assert.AreEqual(2, inner.Count);
             Assert.IsTrue(inner.Exists("innertest2"));
             Assert.AreEqual("innervalue2", inner["innertest2"]);
@@ -221,7 +221,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
             {
                 object sitem = s[names[i]];
                 if (sitem == null) continue;
-                
+
                 Assert.That(d.Exists(names[i]));
                 object ditem = d[names[i]];
 
@@ -232,7 +232,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
                 else if (sitem is IEnumerable sEnumItem)
                 {
                     var sIt = sEnumItem.GetEnumerator();
-                    var dIt = ((IEnumerable) ditem).GetEnumerator();
+                    var dIt = ((IEnumerable)ditem).GetEnumerator();
                     while (sIt.MoveNext())
                     {
                         Assert.That(dIt.MoveNext());

@@ -124,7 +124,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Issues.NetTopologySuite.IO.GeoJSON
         [Test]
         public void TestDeserializationOfNullGeometries()
         {
-            var fooS = new Foo {Name = "fooS"};
+            var fooS = new Foo { Name = "fooS" };
             var s = GeoJsonSerializer.Create();
             var sb = new StringBuilder();
             s.Serialize(new StringWriter(sb), fooS);
@@ -180,7 +180,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Issues.NetTopologySuite.IO.GeoJSON
                 "{\"type\": \"Feature\",\"geometry\": {\"type\": \"LineString\",\"coordinates\": [[0,0],[2,2],[3,2]]},\"properties\": {\"key\": \"value\"}}";
             var notNullGeometryFeature = new GeoJsonReader().Read<Feature>(featureJson);
 
-            var attributesTable = new AttributesTable { {"key", "value"}};
+            var attributesTable = new AttributesTable { { "key", "value" } };
             Geometry geometry = null;
             var nullGeometryFeature = new Feature(geometry, attributesTable);
 
@@ -374,7 +374,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Issues.NetTopologySuite.IO.GeoJSON
         public void TestAddToSerializerSettings()
         {
             var jss = new JsonSerializerSettings();
-            var factory = new GeometryFactory(new PrecisionModel(1E6),4326);
+            var factory = new GeometryFactory(new PrecisionModel(1E6), 4326);
             const int dimension = 2;
             Assert.That(() =>
             {
@@ -431,7 +431,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Issues.NetTopologySuite.IO.GeoJSON
                 }
 
                 if (!data.Attributes.Exists("wof:lang_x_official"))
-                    data.Attributes.Add("wof:lang_x_official", new List<string>() {"vnm", "eng"});
+                    data.Attributes.Add("wof:lang_x_official", new List<string>() { "vnm", "eng" });
 
 
                 var result = AliasNames(data.Attributes["wof:name"].ToString(), admin);
@@ -457,7 +457,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Issues.NetTopologySuite.IO.GeoJSON
 
         private IList<string> AliasNames(string key, AdminType adminType)
         {
-            return new List<string>(new [] { $"{key}_{adminType}_1", $"{key}_{adminType}_2" });
+            return new List<string>(new[] { $"{key}_{adminType}_1", $"{key}_{adminType}_2" });
         }
 
         private enum AdminType

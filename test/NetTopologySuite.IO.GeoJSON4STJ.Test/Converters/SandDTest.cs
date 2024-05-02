@@ -25,7 +25,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
             get
             {
                 var res = new JsonSerializerOptions
-                    {ReadCommentHandling = JsonCommentHandling.Skip};
+                { ReadCommentHandling = JsonCommentHandling.Skip };
                 res.Converters.Add(GeoJsonConverterFactory);
                 return res;
             }
@@ -51,7 +51,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
 
         protected T Deserialize(string geoJson, JsonSerializerOptions options)
         {
-            using(var ms = new MemoryStream(Encoding.UTF8.GetBytes(geoJson)))
+            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(geoJson)))
                 return Deserialize(ms, options);
         }
 

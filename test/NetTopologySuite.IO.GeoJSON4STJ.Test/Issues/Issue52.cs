@@ -27,7 +27,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Issues
             var poly1 = (Polygon)rdr.Read(wkt);
 
             var options = new JsonSerializerOptions
-                { ReadCommentHandling = JsonCommentHandling.Skip };
+            { ReadCommentHandling = JsonCommentHandling.Skip };
 
             options.Converters.Add(new GeoJsonConverterFactory(
                 NtsGeometryServices.Instance.CreateGeometryFactory(4326),

@@ -20,7 +20,8 @@ namespace NetTopologySuite.IO
         /// </summary>
         public GeoJsonWriter()
         {
-            SerializerSettings = new JsonSerializerSettings {
+            SerializerSettings = new JsonSerializerSettings
+            {
                 NullValueHandling = NullValueHandling.Ignore
             };
             Dimension = GeoJsonSerializer.Dimension;

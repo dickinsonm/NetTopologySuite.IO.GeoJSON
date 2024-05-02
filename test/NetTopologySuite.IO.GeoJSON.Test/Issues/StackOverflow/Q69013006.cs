@@ -15,7 +15,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Issues.StackOverflow
                 throw new NUnit.Framework.IgnoreException("Resource Q69013006.json not found");
 
             var opt = new System.Text.Json.JsonSerializerOptions
-                { ReadCommentHandling = System.Text.Json.JsonCommentHandling.Skip };
+            { ReadCommentHandling = System.Text.Json.JsonCommentHandling.Skip };
             opt.Converters.Add(new GeoJsonConverterFactory());
             opt.PropertyNameCaseInsensitive = true;
 

@@ -84,7 +84,7 @@ namespace NetTopologySuite.IO.Converters
                 switch (propertyName)
                 {
                     case "type":
-                        geometryType = (GeoJsonObjectType) Enum.Parse(typeof(GeoJsonObjectType), reader.GetString());
+                        geometryType = (GeoJsonObjectType)Enum.Parse(typeof(GeoJsonObjectType), reader.GetString());
                         reader.ReadToken(JsonTokenType.String);
                         break;
                     case "geometries":
@@ -248,9 +248,9 @@ namespace NetTopologySuite.IO.Converters
 
         private void WritePolygon(Utf8JsonWriter writer, Polygon value, JsonSerializerOptions options)
         {
-            
+
             writer.WriteStartArray();
-            WriteCoordinateSequence(writer, value.ExteriorRing.CoordinateSequence, options, orientation:_oriExterior);
+            WriteCoordinateSequence(writer, value.ExteriorRing.CoordinateSequence, options, orientation: _oriExterior);
             for (int i = 0; i < value.NumInteriorRings; i++)
                 WriteCoordinateSequence(writer, value.GetInteriorRingN(i).CoordinateSequence, options, orientation: _oriInterior);
             writer.WriteEndArray();

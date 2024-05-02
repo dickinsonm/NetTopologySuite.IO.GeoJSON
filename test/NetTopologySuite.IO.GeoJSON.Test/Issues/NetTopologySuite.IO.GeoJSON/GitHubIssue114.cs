@@ -39,7 +39,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Issues.NetTopologySuite.IO.GeoJSON
                 if (x == y) return true;
 
                 if (x.Count != y.Count) return false;
-                if (x.HasM !=  y.HasM) return false;
+                if (x.HasM != y.HasM) return false;
                 if (x.HasZ != y.HasZ) return false;
 
                 for (int i = 0; i < x.Count; i++)

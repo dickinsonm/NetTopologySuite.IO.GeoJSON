@@ -17,7 +17,7 @@ namespace NetTopologySuite.IO.GeoJSON.Test.Usage
         {
             var road = new Road();
             road.Geometry = _factory.CreateLineString(
-                new[] {new Coordinate(2500000, 5600000), new Coordinate(2500100, 5600010)});
+                new[] { new Coordinate(2500000, 5600000), new Coordinate(2500100, 5600010) });
             road.Name = "Teststrecke";
             road.OneWay = false;
             road.NumLanes = 6;

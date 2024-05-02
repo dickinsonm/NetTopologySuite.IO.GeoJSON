@@ -12,7 +12,7 @@
                 throw new NUnit.Framework.IgnoreException("Resource Issue87.json not found");
 
             var opt = new System.Text.Json.JsonSerializerOptions
-                { ReadCommentHandling = System.Text.Json.JsonCommentHandling.Skip };
+            { ReadCommentHandling = System.Text.Json.JsonCommentHandling.Skip };
             opt.Converters.Add(new NetTopologySuite.IO.Converters.GeoJsonConverterFactory());
             opt.PropertyNameCaseInsensitive = true;
 

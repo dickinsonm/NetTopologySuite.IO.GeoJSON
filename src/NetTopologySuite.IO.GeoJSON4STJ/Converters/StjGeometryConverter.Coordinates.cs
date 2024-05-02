@@ -16,7 +16,7 @@ namespace NetTopologySuite.IO.Converters
             }
 
             if (multiple)
-            { 
+            {
                 writer.WriteStartArray();
                 if (orientation == OrientationIndex.Clockwise && Orientation.IsCCW(sequence) ||
                     orientation == OrientationIndex.CounterClockwise && !Orientation.IsCCW(sequence))

@@ -12,7 +12,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
         private static readonly Random RND = new Random(17);
         private static readonly PrecisionModel PM = new PrecisionModel(PrecisionScale);
         private static readonly GeometryFactory GF = new GeometryFactory(PM, 4326);
-        private static readonly string[] RNDNames = new[] {"Random", "Zufall", "Hasard", "Caso", "Azar"};
+        private static readonly string[] RNDNames = new[] { "Random", "Zufall", "Hasard", "Caso", "Azar" };
         private static readonly Geometry Bounds = GF.ToGeometry(new Envelope(-BoundX, BoundX, -BoundY, BoundY));
 
         public static IFeature Create(OgcGeometryType geometryType, params (string, TypeCode)[] properties)
@@ -43,7 +43,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
                         value = null;
                         break;
                     case TypeCode.Int16:
-                        value = (short) RND.Next(short.MinValue, short.MaxValue);
+                        value = (short)RND.Next(short.MinValue, short.MaxValue);
                         break;
                     case TypeCode.Int32:
                         value = RND.Next(int.MinValue, int.MaxValue);
@@ -104,7 +104,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
             double y = (double)RND.Next(-BoundY, BoundY) / PrecisionScale;
 
             var res = threeD
-                ? new CoordinateZ(x, y, (double) RND.Next(0, BoundZ) / PrecisionScale)
+                ? new CoordinateZ(x, y, (double)RND.Next(0, BoundZ) / PrecisionScale)
                 : new Coordinate(x, y);
             PM.MakePrecise(res);
             return res;
@@ -252,7 +252,7 @@ namespace NetTopologySuite.IO.GeoJSON4STJ.Test.Converters
         private static double[] CreatePositions(int num)
         {
             var tmp = new List<double>(num);
-            for(int i = 0; i < num; i++)
+            for (int i = 0; i < num; i++)
                 tmp.Add(RND.NextDouble());
             tmp.Sort();
             return tmp.ToArray();

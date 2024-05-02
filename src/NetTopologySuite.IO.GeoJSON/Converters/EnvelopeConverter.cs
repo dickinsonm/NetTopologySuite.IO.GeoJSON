@@ -18,7 +18,7 @@ namespace NetTopologySuite.IO.Converters
         /// Creates an instance of this class that is using a <see cref="PrecisionModels.Floating"/> precision model.
         /// </summary>
         public EnvelopeConverter()
-            :this(new PrecisionModel(PrecisionModels.Floating))
+            : this(new PrecisionModel(PrecisionModels.Floating))
         {
         }
 

@@ -43,7 +43,7 @@ namespace NetTopologySuite.IO.Converters
         /// <param name="geometryFactory">The geometry factory.</param>
         /// <param name="dimension">The number of dimensions to handle.  Must be 2 or 3.</param>
         public GeometryConverter(GeometryFactory geometryFactory, int dimension)
-            :this(geometryFactory, dimension, RingOrientationOption.EnforceRfc9746,
+            : this(geometryFactory, dimension, RingOrientationOption.EnforceRfc9746,
                   new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
         {
         }
