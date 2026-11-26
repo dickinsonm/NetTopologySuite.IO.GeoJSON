@@ -19,10 +19,15 @@ jobs:
     - name: Get source
       uses: actions/checkout@v4
 
-    - name: Setup .NET 6.0
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: |
+          6.0.x
+          7.0.x
+          8.0.x
+          9.0.x
+          10.0.x
 
     - name: Build
       run: dotnet build -c Release
@@ -30,6 +35,9 @@ jobs:
     - name: Test
       run: dotnet test -c Release --no-build -v normal
       shell: bash # defaults disagree on how to quote the filter string
+
+    - name: Test with the latest System.Text.Json
+      run: dotnet test -c Release -p:SystemTextJsonVersion=11.0.0 test/NetTopologySuite.IO.GeoJSON4STJ.Test
 
     - name: Pack
       run: dotnet pack -c Release --no-build -o artifacts -p:NoWarn=NU5105

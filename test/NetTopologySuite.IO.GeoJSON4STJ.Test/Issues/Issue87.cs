@@ -16,8 +16,8 @@
             opt.Converters.Add(new NetTopologySuite.IO.Converters.GeoJsonConverterFactory());
             opt.PropertyNameCaseInsensitive = true;
 
-            var data = new System.Span<byte>(new byte[file.Length]);
-            file.Read(data);
+            var data = new byte[file.Length];
+            file.Read(data, 0, data.Length);
             var res = System.Text.Json.JsonSerializer.Deserialize<PartnerForCreationDto>(data, opt);
 
             NUnit.Framework.Assert.That(res, NUnit.Framework.Is.Not.Null);
